@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from "vue-router";
 defineProps({
   title: {
     type: String,
@@ -16,10 +17,15 @@ defineProps({
     type: String,
     default: "Developer at Open AI",
   },
+  postId: {
+    type: Number,
+    required: true,
+  },
 });
 </script>
 <template>
-  <figure
+  <RouterLink
+    :to="'/posts/' + postId"
     class="flex flex-col items-center justify-center p-8 text-center border-b border-default rounded-t-base md:rounded-t-none md:rounded-ss-base md:border-e"
   >
     <blockquote class="max-w-2xl mx-auto mb-4 text-body lg:mb-8">
@@ -39,5 +45,5 @@ defineProps({
         <div class="text-sm text-body">{{ userEmail }}</div>
       </div>
     </figcaption>
-  </figure>
+  </RouterLink>
 </template>

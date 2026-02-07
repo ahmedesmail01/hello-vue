@@ -62,6 +62,7 @@ const {
     <div v-if="loadingUsers">loadinguser...</div>
     <div v-if="posts" v-for="post in posts.slice(0, shownLimit)" :key="post.id">
       <PostCard
+        :postId="post.id"
         :title="post.title"
         :description="post.body"
         :userName="
